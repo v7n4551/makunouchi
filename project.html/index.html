@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макуноучі Іппо - Легенда Боксу</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Навігація */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+
+        /* Геройська секція */
+        header {
+            height: 100vh;
+            background: url('https://images.alphacoders.com/132/1328441.jpg') no-repeat center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-text p {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            color: #ffcc00;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ff0000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+        }
+
+        /* Анімація */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Секції */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: #ffcc00;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        /* Біографія */
+        .bio p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* Бої */
+        .fights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .fight-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .fight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .fight-card h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .fight-card p {
+            color: #bbb;
+        }
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Форма */
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #2a2a2a;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px #ff0000;
+        }
+
+        .contact button {
+            padding: 15px;
+            background: #ff0000;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact button:hover {
+            background: #cc0000;
+        }
+
+        /* Футер */
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text p {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навігація -->
+    <nav>
+        <ul>
+            <li><a href="#home">Головна</a></li>
+            <li><a href="#bio">Біографія</a></li>
+            <li><a href="#fights">Бої</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+    </nav>
+
+    <!-- Геройська секція -->
+    <header id="home">
+        <div class="hero-text">
+            <h1>Макуноучі Іппо</h1>
+            <p>Легенда боксу з непереможним духом</p>
+            <a href="#bio" class="btn">Дізнайтесь більше</a>
+        </div>
+    </header>
+
+    <!-- Біографія -->
+    <section class="bio" id="bio">
+        <h2>Хто такий Іппо?</h2>
+        <p>
+            Макуноучі Іппо — головний герой манги та аніме *Hajime no Ippo*, створеної Джорджем Морікавою. Сором’язливий підліток, який працює в рибальському бізнесі своєї матері, випадково потрапляє у світ боксу після зустрічі з Такумурою Мамору. Завдяки своїй наполегливості, силі духу та унікальній техніці, Іппо стає одним із найсильніших боксерів Японії.
+        </p>
+        <p>
+            Його фірмова техніка — Демпсі Ролл — стала легендарною, а його бої проти таких суперників, як Міята Ічіро, Сендо Такеші та Рікардо Мартінес, увійшли в історію. Іппо — це символ боротьби, саморозвитку та прагнення до мрії.
+        </p>
+    </section>
+
+    <!-- Ключові бої -->
+    <section class="fights" id="fights">
+        <h2>Легендарні Бої</h2>
+        <div class="fights">
+            <div class="fight-card">
+                <h3>Іппо проти Міяти</h3>
+                <p>Епічний бій, який став початком кар’єри Іппо. Його суперник, Міята Ічіро, був першим серйозним викликом.</p>
+            </div>
+            <div class="fight-card">
+                <h3>Іппо проти Сендо</h3>
+                <p>Бій за титул чемпіона Японії, де Іппо продемонстрував свою витривалість і Демпсі Ролл.</p>
+            </div>
+            <div class="fight-card">
+                <h3>Іппо проти Машіби</h3>
+                <p>Технічний і напружений бій проти холоднокровного Рyo Машіби.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Галерея -->
+    <section class="gallery" id="gallery">
+        <h2>Галерея</h2>
+        <div class="gallery">
+            <!-- Замініть src на реальні зображення -->
+            <img src="https://via.placeholder.com/300x200?text=Ippo+Punch" alt="Ippo Punch">
+            <img src="https://via.placeholder.com/300x200?text=Ippo+Training" alt="Ippo Training">
+            <img src="https://via.placeholder.com/300x200?text=Ippo+Victory" alt="Ippo Victory">
+            <img src="https://via.placeholder.com/300x200?text=Ippo+Ring" alt="Ippo Ring">
+        </div>
+    </section>
+
+    <!-- Контактна форма -->
+    <section class="contact" id="contact">
+        <h2>Зв’яжіться з нами</h2>
+        <form>
+            <input type="text" placeholder="Ваше ім’я" required>
+            <input type="email" placeholder="Ваш email" required>
+            <textarea placeholder="Ваше повідомлення" rows="5" required></textarea>
+            <button type="submit">Надіслати</button>
+        </form>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>Створено для фанатів *Hajime no Ippo* | 2025</p>
+    </footer>
+</body>
+</html>
